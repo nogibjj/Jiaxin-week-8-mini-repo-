@@ -124,6 +124,7 @@ modules-left = date time weather
 This adds the "weather" module to the left side of the Polybar, along with the "date" and "time" modules.
 
 **Reference**: 
+  
 https://forum.archlabslinux.com/t/polybar-weather/1357/8
 
 https://github.com/kamek-pf/polybar-forecast
