@@ -1,6 +1,7 @@
 # Jiaxin-week-8-mini-repo-
 
 This is a description of a weather forecast module for Polybar that requires the Weather Icons and Material Icons fonts to work properly. 
+<img width="497" alt="Screen Shot 2023-02-27 at 3 58 42 PM" src="https://user-images.githubusercontent.com/112274822/221684205-c162bfdb-f65e-4a5d-ba5a-4a756131c58b.png">
 
 ## Create a weather forecast module for Polybar
 Here are the steps to use this module:
@@ -121,3 +122,8 @@ This sets the second font to the Weather Icons font with a size of 12.
 modules-left = date time weather
 ```
 This adds the "weather" module to the left side of the Polybar, along with the "date" and "time" modules.
+
+**Reference**: 
+https://forum.archlabslinux.com/t/polybar-weather/1357/8
+
+https://github.com/kamek-pf/polybar-forecast
