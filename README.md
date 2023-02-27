@@ -74,3 +74,50 @@ interval = 300
 format = <label>
 ```
 Replace "/path/to/weather_script.py" with the actual path to the script, and "<label>" with the Handlebars syntax for the label you want to display.
+
+## Install polybar-forecast 
+Instructions for building and installing the polybar-forecast binary for Polybar. Here are the steps to use this binary:
+
+1. Download the pre-built binary or build it from source: If you want to use the pre-built binary, download it from the release page and make it executable by running "chmod +x polybar-forecast". If you want to build it from source, run "cargo build --release" in the project directory. This will generate a binary file named "polybar-forecast" in the "target/release" directory.
+
+2. Copy the binary to your desired location: You can copy the "polybar-forecast" binary to any directory you want. It is recommended to place it in a directory that is included in your system's PATH variable.
+
+3. Create a configuration file: Create a configuration file named "config.toml" in either the same directory as the binary or in "$HOME/.config/polybar-forecast/". The configuration file should contain the necessary options for the binary to work, such as the API key, city ID, and output format.
+
+4. Add a module to your Polybar configuration file: Finally, add a new module to your Polybar configuration file that points to the "polybar-forecast" binary and specifies the path to the configuration file. For example:
+```
+[module/weather]
+type = custom/script
+exec = /path/to/polybar-forecast -c /path/to/config.toml
+interval = 300
+format = <label>
+```
+Replace "/path/to/polybar-forecast" with the actual path to the "polybar-forecast" binary, and "/path/to/config.toml" with the actual path to the configuration file. Also, replace "<label>" with the Handlebars syntax for the label you want to display.
+  
+## Creating a new weather module
+These are instructions for creating a new weather module in Polybar using the polybar-forecast binary. Here are the steps to use this module:
+
+1. Install polybar-forecast: Follow the instructions in my previous response to build or download the polybar-forecast binary and place it in a directory that is included in your system's PATH variable.
+
+2. Configure the weather module: Create a new module in your Polybar configuration file named "weather" with the following options:
+```
+[module/weather]
+type = custom/script
+exec = /path/to/polybar-forecast
+exec-if = ping openweathermap.org -c 1
+interval = 600
+label-font = 3
+```
+Replace "/path/to/polybar-forecast" with the actual path to the "polybar-forecast" binary. The "exec-if" option makes sure that the module only runs if there is an internet connection. The "interval" option sets the update interval to 600 seconds (10 minutes). The "label-font" option sets the font size for the label to 3.
+
+3. Add the Weather Icons font: Make sure to add the Weather Icons font to your Polybar configuration file, otherwise the weather icons will not render correctly. You can add the font using the "font-X" option, where X is a number that corresponds to the font index. For example:
+```
+font-2 = Weather Icons:size=12;0
+```
+This sets the second font to the Weather Icons font with a size of 12.
+
+4. Add the weather module to your Polybar: Finally, add the "weather" module to your Polybar configuration file. For example:
+```
+modules-left = date time weather
+```
+This adds the "weather" module to the left side of the Polybar, along with the "date" and "time" modules.
